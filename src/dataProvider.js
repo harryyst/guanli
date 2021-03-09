@@ -1,7 +1,7 @@
 import { fetchUtils } from 'react-admin';
 import { stringify } from 'query-string';
 
-const apiUrl = 'https://my.api.com/';
+const apiUrl = 'http://localhost:4000/api/students';
 const httpClient = fetchUtils.fetchJson;
 
 export default {
@@ -17,12 +17,15 @@ export default {
 
         return httpClient(url).then(({ headers, json }) => ({
             data: json,
-            total: parseInt(headers.get('content-range').split('/').pop(), 10),
+            total: parseInt(headers.get('content-length').split('/').pop(), 10),
         }));
     },
 
     getOne: (resource, params) =>
-        httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
+        httpClient(`${apiUrl}/${resource}`,{
+            method: 'POST',
+            body: JSON.stringify(params),
+        }).then(({ json }) => ({
             data: json,
         })),
 

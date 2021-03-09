@@ -7,16 +7,17 @@ import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
 import Dashboard from './Dashboard';
 import authProvider from './authProvider';
-// import dataProvider from './dataProvider';
+import dataProvider from './dataProvider';
 
-const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
+// const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 
 
 
 const App = () => (
     <Admin dashboard={Dashboard} authProvider={authProvider}  dataProvider={dataProvider}>
-        <Resource name="users" list={UserList} icon={UserIcon}/>
-        <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon}/>
+        {/* <Resource name="user" list={UserList} icon={UserIcon}/> */}
+
+        <Resource name="user" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon}/>
     </Admin>
 );
 export default App;

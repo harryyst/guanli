@@ -13,29 +13,41 @@ import {
     Create,
     Filter,
 } from 'react-admin';
+import { TopToolbar, ListButton, ShowButton } from 'react-admin';
+import dataProvider from './dataProvider';
+
+
 
 export const PostList = props => (
+    
 <List filters={<PostFilter />} {...props}>
         <Datagrid>
+            {/* <TextField source="id" /> */}
             <TextField source="id" />
-            <ReferenceField source="userId" reference="users">
-                <TextField source="name" />
-            </ReferenceField>
-            <TextField source="title" />
+            <TextField source="name" />
+            <TextField source="vips" />
             <EditButton />
         </Datagrid>
     </List>
 );
 
+// const PostEditActions = () => {
+//     dataProvider.getOne('getuser', { name: "YsT" })
+//     .then(response => console.log(response));
+// }
+    
+;
+
 export const PostEdit = props => (
-    <Edit {...props}>
+    <Edit  {...props}>
         <SimpleForm>
             <TextInput disabled source="id" />
-            <ReferenceInput source="userId" reference="users">
-                <SelectInput optionText="name" />
-            </ReferenceInput>
-            <TextInput source="title" />
-            <TextInput multiline source="body" />
+            {/* <ReferenceInput source="userId" reference="users"> */}
+                {/* <SelectInput optionText="name" /> */}
+            {/* </ReferenceInput> */}
+            <TextInput source="name" />
+            {/* <TextInput source="title" /> */}
+            {/* <TextInput multiline source="body" /> */}
         </SimpleForm>
     </Edit>
 );
