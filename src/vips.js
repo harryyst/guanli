@@ -14,7 +14,6 @@ import {
     Filter,
     DateField
 } from 'react-admin';
-import RichTextInput from 'ra-input-rich-text';
 
 import { TopToolbar, ListButton, ShowButton } from 'react-admin';
 
