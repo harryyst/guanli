@@ -17,18 +17,17 @@ import {
 import RichTextInput from 'ra-input-rich-text';
 
 import { TopToolbar, ListButton, ShowButton } from 'react-admin';
-import dataProvider from './dataProvider';
 
 
 
-export const reservationList = props => (
+export const vipList = props => (
     
-<List filters={<reservationFilter />} {...props}>
+<List filters={<vipFilter />} {...props}>
         <Datagrid>
             {/* <TextField source="id" /> */}
-            <TextField source="id" />
             <TextField source="name" />
-            <TextField source="vips" />
+            <TextField source="price" />
+            <TextField source="desp" />
             <EditButton />
         </Datagrid>
     </List>
@@ -41,38 +40,38 @@ export const reservationList = props => (
     
 ;
 
-export const reservationEdit = props => (
+export const vipEdit = props => (
     <Edit  {...props}>
         <SimpleForm>
-            <TextInput disabled source="id" />
+            {/* <TextInput disabled source="id" /> */}
             {/* <ReferenceInput source="userId" reference="users"> */}
                 {/* <SelectInput optionText="name" /> */}
             {/* </ReferenceInput> */}
             <TextInput source="name" />
-            <SelectInput source="vips" choices={[
-                { id:'白牡蛎', name: '白牡蛎' },
-                { id:'黑牡蛎', name: '黑牡蛎' },
-            ]} />
-            
+            <TextInput source="price" />
+            <TextInput source="avaTime" />
+            <TextInput source="canUse" />
+            <TextInput source="desp" />
             {/* <TextInput source="title" /> */}
             {/* <TextInput multiline source="body" /> */}
         </SimpleForm>
     </Edit>
 );
 
-export const reservationCreate = props => (
-        <Create {...props}>
+export const vipCreate = props => (
+        <Create name="asd" {...props}>
             <SimpleForm>
-               <ReferenceInput source="userId" reference="users">
-                    <SelectInput optionText="name" />
-                </ReferenceInput>
-                <TextInput source="title" />
-                <TextInput multiline source="body" />
+                <TextInput source="name" />
+                <TextInput source="price" />
+                <TextInput source="avaTime" />
+                <TextInput source="canUse" />
+                <TextInput source="desp" />
+                
             </SimpleForm>
         </Create>
     );
 
-    const reservationFilter = (props) => (
+    const vipFilter = (props) => (
         <Filter {...props}>
             <TextInput label="Search" source="q" alwaysOn />
             <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
