@@ -44,9 +44,6 @@ export const seatList = props => (
 //     dataProvider.getOne('getuser', { name: "YsT" })
 //     .then(response => console.log(response));
 // }
-    
-;
-
 
 
 export const seatEdit = props => (

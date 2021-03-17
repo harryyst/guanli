@@ -1,5 +1,4 @@
 export default {
-    // called when the user attempts to log in
     login: ({ username, password }) =>  {
         const request = new Request('http://localhost:4000/api/students/authenticate', {
             method: 'POST',

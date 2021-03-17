@@ -18,8 +18,13 @@ import {
     DateInput,
     BooleanInput,
     Show,
-    SimpleShowLayout
+    Tab,
+    TabbedShowLayout,
+    ReferenceManyField,
+    RichTextField,
+
 } from 'react-admin';
+import AddCommentButton from './AddCommentButton';
 
 import { TopToolbar, ListButton, ShowButton } from 'react-admin';
 
@@ -37,7 +42,8 @@ export const shopList = props => (
 
             <DateField source="endtime" options={{hour:"numeric"}} showTime/>
             <BooleanField label="启用" source="openOrnot" />
-            {/* <ListButton basePath="/shopseats" /> */}
+            {/* <ListButton label="seats" basePath="/seat" /> */}
+            <ShowButton />
             <EditButton />
 
         </Datagrid>
@@ -81,6 +87,32 @@ export const shopEdit = props => (
         </SimpleForm>
     </Edit>
 );
+
+export const shopShow = props => (
+    <Show {...props}>
+      <TabbedShowLayout>
+        <Tab label="Deatail">
+          <TextField source="name" />
+          <TextField source="site" />
+          <TextField source="phone" />
+        </Tab>
+        
+        <Tab label="seat" path="seat">
+          <ReferenceManyField
+            addLabel={false}
+            reference="seat"
+            target="location"
+            sort={{ field: 'num', order: 'DESC' }}
+          >
+            <Datagrid>
+              <TextField source="num" />
+              <TextField source="user" />
+            </Datagrid>
+          </ReferenceManyField>
+        </Tab>
+      </TabbedShowLayout>
+    </Show>
+  );
 
 export const seatList = props =>(
     <List {...props}>

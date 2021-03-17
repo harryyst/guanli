@@ -48,10 +48,12 @@ export const PostEdit = props => (
                 {/* <SelectInput optionText="name" /> */}
             {/* </ReferenceInput> */}
             <TextInput source="name" />
-            <SelectInput source="vips" choices={[
+            <TextInput source="vips" />
+
+            {/* <SelectInput source="vips" choices={[
                 { id:'白牡蛎', name: '白牡蛎' },
                 { id:'黑牡蛎', name: '黑牡蛎' },
-            ]} />
+            ]} /> */}
             
             {/* <TextInput source="title" /> */}
             {/* <TextInput multiline source="body" /> */}
