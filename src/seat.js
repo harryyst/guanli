@@ -16,7 +16,8 @@ import {
     BooleanField,
     DateTimeInput,
     DateInput,
-    BooleanInput
+    BooleanInput,
+    
 } from 'react-admin';
 
 import { TopToolbar, ListButton, ShowButton } from 'react-admin';
@@ -58,6 +59,7 @@ export const seatEdit = props => (
             {/* <TextInput source="avaTime" /> */}
             <BooleanInput source="available" />
             <TextInput source="location" />
+
             {/* <TextInput source="title" /> */}
             {/* <TextInput multiline source="body" /> */}
         </SimpleForm>

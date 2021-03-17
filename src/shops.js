@@ -82,6 +82,7 @@ export const shopEdit = props => (
             <DateTimeInput source="startime" />
             <DateTimeInput source="endtime" />
             <TextInput source="description" />
+            
             {/* <TextInput source="title" /> */}
             {/* <TextInput multiline source="body" /> */}
         </SimpleForm>
@@ -95,6 +96,9 @@ export const shopShow = props => (
           <TextField source="name" />
           <TextField source="site" />
           <TextField source="phone" />
+        </Tab>
+
+        <Tab label="Deatail">
         </Tab>
         
         <Tab label="seat" path="seat">

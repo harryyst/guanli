@@ -21,7 +21,7 @@ import { TopToolbar, ListButton, ShowButton } from 'react-admin';
 
 export const vipList = props => (
     
-<List filters={<vipFilter />} {...props}>
+<List filters={<VipFilter />} {...props}>
         <Datagrid>
             {/* <TextField source="id" /> */}
             <TextField source="name" />
@@ -70,7 +70,7 @@ export const vipCreate = props => (
         </Create>
     );
 
-    const vipFilter = (props) => (
+    const VipFilter = (props) => (
         <Filter {...props}>
             <TextInput label="Search" source="q" alwaysOn />
             <ReferenceInput label="User" source="userId" reference="users" allowEmpty>

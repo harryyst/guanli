@@ -22,12 +22,16 @@ import dataProvider from './dataProvider';
 
 export const reservationList = props => (
     
-<List filters={<reservationFilter />} {...props}>
+<List filters={<ReservationFilter />} {...props}>
         <Datagrid>
             {/* <TextField source="id" /> */}
-            <TextField source="id" />
-            <TextField source="name" />
-            <TextField source="vips" />
+            <TextField source="user" />
+            <TextField source="seat" />
+            <TextField source="location" />
+            <TextField source="start_time" />
+            <TextField source="end_time" />
+            <TextField source="date" />
+
             <EditButton />
         </Datagrid>
     </List>
@@ -47,12 +51,12 @@ export const reservationEdit = props => (
             {/* <ReferenceInput source="userId" reference="users"> */}
                 {/* <SelectInput optionText="name" /> */}
             {/* </ReferenceInput> */}
-            <TextInput source="name" />
-            <SelectInput source="vips" choices={[
-                { id:'白牡蛎', name: '白牡蛎' },
-                { id:'黑牡蛎', name: '黑牡蛎' },
-            ]} />
-            
+            <TextInput source="seat" />
+            <TextInput source="location" />
+            <TextInput source="start_time" />
+            <TextInput source="end_time" />
+            <TextInput source="date" />
+
             {/* <TextInput source="title" /> */}
             {/* <TextInput multiline source="body" /> */}
         </SimpleForm>
@@ -62,20 +66,20 @@ export const reservationEdit = props => (
 export const reservationCreate = props => (
         <Create {...props}>
             <SimpleForm>
-               <ReferenceInput source="userId" reference="users">
-                    <SelectInput optionText="name" />
-                </ReferenceInput>
-                <TextInput source="title" />
-                <TextInput multiline source="body" />
+                <TextInput source="user" />
+                <TextInput source="seat" />
+                <TextInput source="location" />
+                <TextInput source="start_time" />
+                <TextInput source="end_time" />
+                <TextInput source="date" />
             </SimpleForm>
         </Create>
     );
 
-    const reservationFilter = (props) => (
+    const ReservationFilter = (props) => (
         <Filter {...props}>
-            <TextInput label="Search" source="q" alwaysOn />
-            <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
-                <SelectInput optionText="name" />
-            </ReferenceInput>
+            <TextInput label="Start_time" source="start_time" alwaysOn />
+            <TextInput label="End_time" source="end_time"/>
+            <TextInput label="Date" source="date"/>
         </Filter>
     );

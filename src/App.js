@@ -7,7 +7,6 @@ import { reservationList, reservationEdit, reservationCreate } from './reservati
 import { vipList, vipEdit, vipCreate } from './vips';
 import { shopList, shopEdit, shopCreate,shopShow } from './shops';
 import { seatList, seatEdit, seatCreate } from './seat';
-
 import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
 import Dashboard from './Dashboard';
@@ -28,6 +27,7 @@ const App = () => (
         <Resource name="shop" list={shopList} edit={shopEdit} create={shopCreate} show={shopShow}/>
         {/* <Resource name="user1" list={UserList}/> */}
         <Resource name="seat" list={seatList} edit={seatEdit} create={seatCreate} />
+
     </Admin>
 
 
